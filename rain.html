@@ -4,38 +4,134 @@
 <style>
    html { height: 100%;}
    
-   body { background: #0D343A; 
-           background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13, 52, 58, 1)), 
-                    to (#000000)); 
+   body { background: #00131c; 
           background:-moz-linear-gradient(top, rgba(13, 52, 58, 1) 0%, rgba(0,0,0,1) 100%);
           overflow: hidden;
    }
    
    .drop {
-      background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13, 52, 58, 1)), 
-                  to(rgba(255, 255, 255, 0.6)));
+      background:linear-gradient(white, grey);
       background:-moz-linear-gradient(top, rgba(13, 52, 58, 1) 0%, rgba(255, 255, 255, 0.6) 100%);
       width: 1px;
       height: 89px;
       position: absolute;
       bottom: 200px;
-      -webkit-animation:fall .63s linear infinite;
-      -moz-animation:fall .63s linear infinite;
-      
-    @-webkit-keyframes fall {
-      to {margin-top: 900px;}
+      /* animation:fall .63s linear infinite;
+      -moz-animation:fall .63s linear infinite; */
+      animation-name: fall;
+      animation-duration:.63s;
+      animation-timing-function:linear;
+      animation-iteration-count: infinite;
+   }
+    @keyframes fall {
+      to {margin-top: 600px;}
     }
     
     @-moz-keyframes fall {
       to {margin-top: 900px;}
     }
-    
-   }
-   
+     
+   /* } */
+  .welcome {
+  align-items: center;
+  background-image: linear-gradient(144deg,#482F92, #16476F 0%,#76017D);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  top: 100px;
+}
+
+.welcome:active,
+.welcome:hover {
+  outline: 0;
+}
+
+.welcome span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.welcome:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .welcome {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+#welcome {
+    text-decoration: none;
+    font-style: normal;
+    color: #fff;
+    align-self: center;
+}
+
+
+
+/* .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.name {
+    position: relative;
+    top: 100px;
+  
+} 
+
+h1 {
+    align-self: flex-start;
+    font-size: 100px;
+    color: #fff;
+/* }
+.content h1 { */
+  animation-name: glitch;
+  animation-duration:3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+} 
+
+@keyframes glitch {
+  0%,
+  100% {
+    color: #482F92;
+  }
+  50% {
+    color: #76017D;
+  }
+}
+
+
+
 </style>
 <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type ="text/javascript">
-  var nbDrop = 858;
+  var nbDrop = 200;
   
   function randRange(minNum, maxNum) {
     return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
@@ -44,16 +140,27 @@
   function createRain() {
     for (i=1; i < nbDrop; i++){
       var dropLeft = randRange(0, 1600);
-      var dropTop = randRange(-1000, 1400);
+      var dropTop = randRange(-1000, 1000);
       
       $('.rain').append('<div class="drop" id="drop' + i + '"></div>');
       $('#drop' + i).css('left', dropLeft);
       $('#drop' + i).css('top', dropTop);
      }
     }
+
+    
 </script>
 </head>
 <body onload = "createRain();">
-  <section class="rain"></section>
+  <section class="rain">  
+    <!-- <div className = "content"> -->
+      <h1 class = "name"> Catherine Borisova</h1>
+      <!-- <div className = "center"> -->
+          <button className = "welcome"><span><h3>Check out my portfolio </h3></span></button>
+          <!-- <img src={umbrella}></img> -->
+      <!-- </div> -->
+    <!-- </div> -->
+    </section>
+
 </body>
 </html>
