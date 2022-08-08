@@ -4,10 +4,11 @@
 <style>
    html { height: 100%;}
    
-   body { background: #00131c; 
+   body { background: #000B10; 
           background:-moz-linear-gradient(top, rgba(13, 52, 58, 1) 0%, rgba(0,0,0,1) 100%);
           overflow: hidden;
    }
+    /* rain */
    
    .drop {
       background:linear-gradient(white, grey);
@@ -16,12 +17,11 @@
       height: 89px;
       position: absolute;
       bottom: 200px;
-      /* animation:fall .63s linear infinite;
-      -moz-animation:fall .63s linear infinite; */
       animation-name: fall;
       animation-duration:.63s;
       animation-timing-function:linear;
       animation-iteration-count: infinite;
+      z-index: -1;
    }
     @keyframes fall {
       to {margin-top: 600px;}
@@ -31,76 +31,11 @@
       to {margin-top: 900px;}
     }
      
-   /* } */
-  .welcome {
-  align-items: center;
-  background-image: linear-gradient(144deg,#482F92, #16476F 0%,#76017D);
-  border: 0;
-  border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  display: flex;
-  font-family: Phantomsans, sans-serif;
-  font-size: 20px;
-  justify-content: center;
-  line-height: 1em;
-  max-width: 100%;
-  min-width: 140px;
-  padding: 3px;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  cursor: pointer;
-  position: relative;
-  top: 100px;
-}
-
-.welcome:active,
-.welcome:hover {
-  outline: 0;
-}
-
-.welcome span {
-  background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
-  border-radius: 6px;
-  width: 100%;
-  height: 100%;
-  transition: 300ms;
-}
-
-.welcome:hover span {
-  background: none;
-}
-
-@media (min-width: 768px) {
-  .welcome {
-    font-size: 24px;
-    min-width: 196px;
-  }
-}
-
-#welcome {
-    text-decoration: none;
-    font-style: normal;
-    color: #fff;
-    align-self: center;
-}
-
-
-
-/* .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
+/* content */
 .name {
     position: relative;
     top: 100px;
+    
   
 } 
 
@@ -108,12 +43,15 @@ h1 {
     align-self: flex-start;
     font-size: 100px;
     color: #fff;
-/* }
-.content h1 { */
-  animation-name: glitch;
-  animation-duration:3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: -300px;
+    animation-name: glitch;
+    animation-duration:3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
 } 
 
 @keyframes glitch {
@@ -126,8 +64,64 @@ h1 {
   }
 }
 
+.umbrella {
+  position: absolute;
+  right: 200px;
+  bottom: 30px;
+}
 
+.text {
+  font-size: 15px;
+}
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#482F92, #16476F 0%,#76017D);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  align-self: center;
+  justify-content: center;
+  line-height: 1em;
+  width: 250px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  right: 300px;
+}
 
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
 </style>
 <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type ="text/javascript">
@@ -153,14 +147,9 @@ h1 {
 </head>
 <body onload = "createRain();">
   <section class="rain">  
-    <!-- <div className = "content"> -->
-      <h1 class = "name"> Catherine Borisova</h1>
-      <!-- <div className = "center"> -->
-          <button className = "welcome"><span><h3>Check out my portfolio </h3></span></button>
-          <img src="umbrella.png"></img>
-      <!-- </div> -->
-    <!-- </div> -->
-    </section>
-
+    <h1 class = "name"> Catherine Borisova</h1>
+      <button class = "button-64" role = "button"><span class="text"><h3>Check out my portfolio </h3></span></button>
+      <img class = "umbrella" src="umbrella.png"></img>
+      </section>
 </body>
 </html>
